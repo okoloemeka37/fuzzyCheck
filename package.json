@@ -1,0 +1,22 @@
+{
+  "name": "my-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.0.3"
+  },
+  "dependencies": {
+    "@picosearch/bk-tree": "^1.1.0",
+    "dictionary-en": "^4.0.0",
+    "fast-levenshtein": "^3.0.0",
+    "fuzzysort": "^3.1.0",
+    "nspell": "^2.1.5",
+    "string-similarity": "^4.0.4"
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select Sheet and Column</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css">
+
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+  <h2 class="mb-4 text-center">📊 Excel Sheet</h2>
+
+  <div class="mb-3" id="FileDiv">
+       <p class="btn btn-primary w-100" id="fakeIn">Choose Excel File</p>
+  <input class="visually-hidden" type="file" id="file" accept=".xlsx">
+  
+</div>
+
+<!-- Loading file spinner -->
+
+<div id="loadingSpinner" class=" d-none text-center">
+  <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading file, please wait...</p>
+</div>
+
+
+
+  <!--  Show Sheet Names -->
+  <div class="row" id="sheetCards">
+ 
+  
+  </div>
+  <p class="hldInd"></p>
+  <!-- Column Selector -->
+  <div id="columnSection" class="mt-5 d-none">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title mb-3">🔍 Choose a Column from <span id="selectedSheetName" class="text-primary"></span></h4>
+        
+        <div class="mb-3">
+          <label for="columnDropdown" class="form-label">Available Columns</label>
+          <select class="form-select" id="columnDropdown">
+            <!-- Options will be added dynamically -->
+             
+          </select>
+        </div>
+
+        <button class="btn btn-success mt-2 cc" >✅ Confirm Column</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 class="text-center">Match Column <span class="col1">(Column 1)</span> Against <span class="col2">(Column 2)</span></h4>
+
+<div class="container py-5 fPrev">
+  <h3 class="mb-4 text-center">📄 Preview of Column: <span class="text-primary prevCol"></span></h3>
+
+  <div class="card shadow-sm">
+    <div class="card-body table-wrapper">
+      <div class="row d-flex fw-bold py-2 border hd">
+        
+       
+      </div>
+    </div>
+  </div>
+  <p>Showing First 50 Entries From  Both Columns</p>
+</div>
+
+<div class="ml d-none">
+  
+<button class="btn btn-primary w-50 d-flex text-center" id="check"><div class="spinner-border text-light d-none" id="spin" >
+  <span class="visually-hidden">Loading...</span>
+</div>check for match</button>
+</div> 
+
+<div class="bon">
+
+  <button class="btn btn-success btn-lg btn-bounce">
+    File is ready to download
+  </button>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" id="fkAlert" style="background: rgba(0,0,0,0.5);">
+
+
+  <div class="position-fixed top-0 start-50 translate-middle-x mt-3">
+  <div class="alert alert-primary d-flex flex-column shadow p-3 mb-0 rounded text-center" style="min-width: 300px; max-width: 400px;">
+    <div class="mb-3">
+      <strong>Alert:</strong><p class="mess"></p>.
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary btn-sm px-4 me-2">
+        OK
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm px-4">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+  </div>
+
+<!-- Backdrop -->
+ <div class="moda  d-none">
+<div class="modal-backdrop fade show"></div>
+
+<!-- Modal -->
+<div class="modal fade show  d-block" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header bg-primary text-white rounded-top-4">
+        <h5 class="modal-title">Set Similarity Percentage</h5>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="sim" class="form-label">Enter Similarity Percentage</label>
+          <input class="form-control" min="0" step="10" max="100" type="number" id="simInput" placeholder="e.g. 75">
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <span class="btn btn-primary" id="simBtn">Enter</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+  <div class="container bg-light py-5 secPrev d-none">
+      <button class="btn btn-primary mt-3" id="ExportSheet">Export Selected</button>
+
+    <h2 class="mb-4">Review & Confirm Matches</h2>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-primary">
+          <tr class="prevHead">
+           
+          </tr>
+        </thead>
+        <tbody class="prevBody">
+         
+        </tbody>
+      </table>
+    </div>
+
+  
+  </div>
+
+
+<div id="loader" class="d-none text-center">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Checking...</span>
+  </div>
+</div>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
