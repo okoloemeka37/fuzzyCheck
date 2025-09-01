@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npx vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^7.0.3"
   },
   "dependencies": {
+    "vite": "^7.0.3",
     "@picosearch/bk-tree": "^1.1.0",
     "dictionary-en": "^4.0.0",
     "fast-levenshtein": "^3.0.0",
